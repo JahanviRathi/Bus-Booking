@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.bus-details{
+  width: 100%;
+}
+
+.heading {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.detailsHeading {
+  margin-top: 2%;
+}
+
+.detailsInput {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form-label {
+  font-size: large;
+  font-weight: 500;
+}
+
+.btn {
+  margin-top: 2%;
+  width: 50%;
+}
+
+.pay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

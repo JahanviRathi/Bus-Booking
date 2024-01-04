@@ -1,0 +1,81 @@
+.heading{
+    margin-top: 5rem;
+    text-align: center;
+    color: rgb(87, 52, 9);
+}
+
+.container{
+    box-shadow: 0 15px 30px 1px grey;
+    background: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5rem auto;
+    height: 350px;
+    width: 1000px;
+}
+
+.ticket-details{
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+    padding: 30px;
+    height: 100%;
+    float: left;
+    width: 50%;
+}
+
+.ticket-details h1{
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    color: #344055;
+    margin: 0;
+}
+
+.ticket-details .info{
+    color: #7d7d7d;
+    margin-top: 5%;
+}
+
+.total{
+    bottom: 20%;
+    left: 22.8%;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.passenger-details{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    float: right;
+    width: 45%;
+}
+
+.passenger-details .info{
+    position: absolute;
+    line-height: 1.8;
+    text-align: left;
+    color: #7d7d7d;
+    height: 100%;
+    width: 100%;
+    padding-top: 80px;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    width: 300px;
+}
+
+.btn:hover{
+    background-color: transparent;
+    color: rgb(66, 65, 65);
+}

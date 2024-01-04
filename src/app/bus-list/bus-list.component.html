@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="(!searchInput.source || !searchInput.destination); else correct;" class="empty ">
+  <h1 *ngIf="!searchInput.source">No Source is mentioned!</h1>
+  <h1 *ngIf="!searchInput.destination">No Destination is mentioned!</h1>
+</div>
+
+<ng-template #correct>
+  <div class="container heading" *ngIf="searchInput">
+    <div class="row">
+        <h3>{{searchInput.source}} <i class="fa-solid fa-arrow-right-long"></i> {{searchInput.destination}}</h3>
+    </div>
+</div>
+<div class="container list-data">
+  <div class="row">
+    <table class="table" *ngIf="filteredBusList.length; else empty;">
+      <thead class="thead-dark">
+        <tr>
+          <th>Bus Name</th>
+          <th>Dept. Time</th>
+          <th>Coach Type</th>
+          <th>Seats Available</th>
+          <th>Fare</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let bus of filteredBusList">
+        <tr>
+          <td>{{ bus.name }}</td>
+          <td>{{ bus.deptTime }}</td>
+          <td>{{ bus.coachType }}</td>
+          <td>{{ bus.seats }}</td>
+          <td>{{ bus.fare }}</td>
+          <td><button class="btn btn-danger" (click)="viewSeat(bus.id)">View Seats</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #empty>
+        <h2 class="empty">No Buses on this route</h2>
+    </ng-template>
+  </div>
+</div>
+
+</ng-template>

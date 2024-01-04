@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<div class="container heading">
+    <h3>Bus Details</h3>
+</div>
+<div class="container ">
+    <div class="row bus-details">
+        <div class="col-6">
+            <h4>Bus Name : {{selectedBus.bus.name}}</h4>
+            <h4>Bus Route : {{selectedBus.bus.source}} <i class="fa-solid fa-arrow-right-long"></i> {{selectedBus.bus.destination}}</h4>
+            <h4>Date of Journey : {{selectedBus.doj | date}}</h4>
+        </div>
+        <div class="col-6">
+          <h4>Selected Seats :</h4>
+                <ol>
+                    <li *ngFor="let seat of selectedSeats">
+                        <h6>Seat No: {{seat}}</h6>
+                        <h6>Fare: {{selectedBus.bus.fare}}</h6>
+                    </li>
+                </ol>
+        </div>
+    </div>
+</div>
+<div class="container detailsHeading">
+  <h3>Passenger Details</h3>
+</div>
+<div class="container">
+  <form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-4 detailsInput">
+        <div class="form-group">
+          <label for="name" class="form-label"
+            >Passenger Name</label
+          >
+          <input
+            class="form-control"
+            id="name"
+            formControlName="name"
+            type="text"
+            [class.is-invalid]="
+              passengerForm.get('name').invalid &&
+              passengerForm.get('name').touched
+            "
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              passengerForm.get('name').invalid &&
+              passengerForm.get('name').touched
+            "
+          >
+            Passenger Name is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 detailsInput">
+        <div class="form-group">
+          <label for="mobile" class="form-label"
+            >Mobile Number</label
+          >
+          <input
+            class="form-control"
+            id="mobile"
+            formControlName="mobile"
+            type="text"
+            [class.is-invalid]="
+              passengerForm.get('mobile').invalid &&
+              passengerForm.get('mobile').touched
+            "
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              passengerForm.get('mobile').invalid &&
+              passengerForm.get('mobile').touched
+            "
+          >
+          <div
+          class="text-danger"
+          *ngIf="passengerForm.get('mobile').errors['required']"
+        >
+          Mobile Number is required
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="passengerForm.get('mobile').errors['minlength'] || passengerForm.get('mobile').errors['maxlength']"
+        >
+          Length should be 10
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="passengerForm.get('mobile').errors['pattern']"
+        >
+          Mobile number should be numeric.
+        </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 detailsInput">
+        <div class="form-group">
+          <label for="email" class="form-label"
+            >Passenger Email</label
+          >
+          <input
+            class="form-control"
+            id="email"
+            formControlName="email"
+            type="text"
+            [class.is-invalid]="
+              passengerForm.get('email').invalid &&
+              passengerForm.get('email').touched
+            "
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              passengerForm.get('email').invalid &&
+              passengerForm.get('email').touched
+            "
+          >
+            Email pattern should be correct.
+          </div>
+        </div>
+      </div>
+      <div class="col-md pay">
+        <button type="submit" class="btn btn-success" [disabled]="passengerForm.invalid">
+          Pay Now
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

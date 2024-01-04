@@ -1,0 +1,16 @@
+.dropdown{
+    cursor: pointer;  
+}
+.side{
+    margin-left: auto;
+}
+.item{
+    color: #f1f1f1;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: large;
+}
+
+.icon{
+    border-radius: 50%;
+}

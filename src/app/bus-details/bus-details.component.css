@@ -1,0 +1,42 @@
+.container {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.data {
+  margin-top: 40px;
+}
+
+.details {
+  text-align: left; 
+  padding-left: 100px;
+}
+
+.bus-map {
+  border: 1px solid #5f5d5d;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 30px 100px 100px 30px;
+  column-gap: 20px;
+  padding-left: 30px;
+  width: 400px;
+  height: fit-content;
+}
+
+.seat {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.card, .total, .btn{
+    margin-top: 20px;
+}
+
+.steering{
+  padding-bottom: 20px;
+}
+
+.total-fare{
+  margin-top: 20px;
+  height: fit-content;
+}

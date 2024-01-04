@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.heading {
+  margin-top: 6%;
+  justify-content: center;
+}
+
+.searchInput {
+  background-image: url("../../images/bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  margin-bottom: 0px;
+  height: 400px;
+  margin-top: 30px;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-label {
+  font-size: large;
+  font-weight: 500;
+}
+
+.search {
+  text-transform: uppercase;
+  padding: 12px 27px;
+  background-color: #080909;
+  color: #f1f1f1;
+  border-radius: 10px;
+  border: 1px solid #080909;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 400px;
+}
+
+.isHovered {
+  background-color: transparent;
+  color: #090a0a;
+}
+
+.search:disabled {
+  background-color: #6b6c6c;
+  border: 1px solid #6b6c6c;
+}

@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<h1 class="heading">Thank You for choosing myTrip.com</h1>
+<div class="container">
+    <div class="ticket-details">
+        <h1>Journey Details</h1>
+        <div class="info">
+            <h3>{{ticket.seatDetails.bus.bus.source}} <i class="fa-solid fa-arrow-right-long"></i> {{ticket.seatDetails.bus.bus.destination}}</h3>
+            <h4>Ticket Id : {{ticket.ticketId}}</h4>
+            <span>{{ticket.seatDetails.bus.bus.name | uppercase}}</span>
+            <br>
+            <span>{{ticket.seatDetails.bus.bus.coachType}}</span>
+            <br>
+            <h5>Booked Seats : {{ticket.seatDetails.seatNo}}</h5>
+        </div>
+        <div class="total">
+            <span>Total Fare: {{ticket.total | currency:"INR"}}</span>
+        </div>
+    </div>
+    <div class="passenger-details">
+        <div class="info">
+            <h4>Date of Journey: {{ticket.seatDetails.bus.doj | date}}</h4>
+            <h4>Reporting Time : {{ticket.seatDetails.bus.bus.deptTime}}</h4>
+            <h4>Passenger Name : {{ticket.passengerDetails.name}}</h4>
+            <h4>Mobile Number : {{ticket.passengerDetails.mobile}}</h4>
+            <h4>Email : {{ticket.passengerDetails.email}}</h4>
+        </div>
+    </div>
+</div>
+<div class="home">
+    <button class="btn btn-secondary" routerLink="/" routerLinkActive="active"><i class="fa-solid fa-arrow-left-long"></i> Home</button>
+</div>

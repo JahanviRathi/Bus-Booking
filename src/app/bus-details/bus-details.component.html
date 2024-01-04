@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <h4>{{ selectedBus.name }}</h4>
+    <div class="row data">
+      <div class="col-md-4 bus-map">
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div class="col steering">
+          <img
+            src="../../assets/steering.png"
+            alt="Steering Wheel"
+            width="25px"
+            height="25px"
+          />
+        </div>
+        <div
+          class="seat"
+          *ngFor="let item of numberOfSeats; let in = index"
+        >
+          <img
+            *ngIf="!isSelected(in + 1)"
+            src="../../assets/image1.png"
+            class="selectedSeat"
+            (click)="onSelect(in + 1)"
+          />
+          <img
+            *ngIf="isSelected(in + 1)"
+            src="../../assets/selected.png"
+            class="selectedSeat"
+            (click)="onSelect(in + 1)"
+          />
+          <pre>{{ in + 1 }}</pre>
+        </div>
+      </div>
+      <div class="col details">
+        <div class="row">
+          <div class="col">
+            <h5>
+              {{ selectedBus.source }} <i class="fa-solid fa-arrow-right-long"></i>
+              {{ selectedBus.destination }}
+            </h5>
+            <h5>Departure Time: {{ selectedBus.deptTime }}</h5>
+            <h5>Coach Type : {{ selectedBus.coachType }}</h5>
+            <h5>Fare: {{ selectedBus.fare | currency: "INR" }}</h5>
+            <h5>Date of Journey: {{doj | date}}</h5>
+            <div class="total-fare" *ngIf="selectedSeats.length">
+              <div class="total">
+                <h3>
+                  Total Fare:
+                  {{ selectedBus.fare * selectedSeats.length | currency: "INR" }}
+                </h3>
+                <button
+                  class="btn btn-success"
+                  routerLink="/book-now"
+                  routerLinkActive="active"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col" *ngIf="selectedSeats.length">
+            <h3>Selected Seats</h3>
+            <div class="card" *ngFor="let seat of selectedSeats">
+              <div class="card-body">
+                <h6>Seat No. : {{ seat }}</h6>
+                <h6>Fare: {{ selectedBus.fare | currency: "INR" }}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

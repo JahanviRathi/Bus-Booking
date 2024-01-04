@@ -1,0 +1,51 @@
+h1{
+    margin-top: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.empty{
+    text-align: center;
+}
+
+.ticket-id{
+    font-weight: 500;
+    font-size: large;
+    margin: 20px 0;
+}
+
+.booking-box{
+    padding: 16px;
+    width: 100%;
+    overflow: hidden;
+    transition: box-shadow .1s linear;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    position: relative;
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 15%);
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.details{
+    color: #212121;
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.seat{
+    font-size: 14px;
+    color: #757988
+}
+
+.fare{
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.bus-details{
+    font-weight: 500;
+    margin-top: 25px;
+}

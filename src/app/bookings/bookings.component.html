@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<h1>Bookings</h1>
+
+<div class="empty" *ngIf="!bookedTickets.length; else booked;">
+  <h2>No Bookings to display!</h2>
+</div>
+
+
+<ng-template #booked>
+  <div class="container booking-box" *ngFor="let booking of bookedTickets">
+    <div class="row">
+      <div class="col-6">
+        <p class="ticket-id">
+          Ticket Id : {{ booking.ticketId}}
+        </p>
+      </div>
+      <div class="col-2 fare">Total Fare : {{ booking.total | currency: "INR" }}</div>
+      <div class="col bus-details">
+        <span>Passenger Name: {{booking.passengerDetails.name}}</span>
+        <br>
+        <span>Bus Name: {{ booking.seatDetails.bus.bus.name }}</span>
+        <br />
+        <span
+          >Bus Route: {{ booking.seatDetails.bus.bus.source }}
+          <i class="fa-solid fa-arrow-right-long"></i>
+          {{ booking.seatDetails.bus.bus.destination }}</span
+        >
+      </div>
+    </div>
+    <div class="row" >
+      <div class="col-2 details" *ngFor="let seat of booking.seatDetails.seatNo">
+        <span class="seat">Seat Number: {{ seat }}</span
+        >
+      </div>
+    </div>
+  </div>
+</ng-template>

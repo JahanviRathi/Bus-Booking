@@ -1,0 +1,108 @@
+<app-navbar></app-navbar>
+<div class="container heading">
+  <h3>Book Bus Tickets</h3>
+</div>
+<div class="container searchInput">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="source" class="form-label"
+            ><i class="fa-solid fa-location-arrow"></i> Leaving From</label
+          >
+          <select
+            id="source"
+            class="form-control"
+            formControlName="source"
+            [class.is-invalid]="
+              searchForm.get('source').invalid &&
+              searchForm.get('source').touched
+            "
+            (change)="onSelectSource($event)"
+          >
+            <option *ngFor="let source of sourceList" [value]="source">
+              {{ source }}
+            </option>
+          </select>
+          <div
+            class="text-danger"
+            *ngIf="
+              searchForm.get('source').invalid &&
+              searchForm.get('source').touched
+            "
+          >
+            Source City is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="destination" class="form-label"
+            ><i class="fa-solid fa-location-dot"></i> Going To</label
+          >
+          <select
+            id="destination"
+            class="form-control"
+            type="text"
+            formControlName="destination"
+            autocomplete="off"
+            (change)="onSelectDest($event)"
+            [class.is-invalid]="
+              searchForm.get('destination').invalid &&
+              searchForm.get('destination').touched
+            "
+          >
+            <option *ngFor="let dest of destList" [value]="dest">
+              {{ dest }}
+            </option>
+          </select>
+          <div
+            class="text-danger"
+            *ngIf="
+              searchForm.get('destination').invalid &&
+              searchForm.get('destination').touched
+            "
+          >
+            Destination City is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="doj" class="form-label"
+            ><i class="fa-solid fa-calendar-days"></i> Date Of Journey</label
+          >
+          <input
+            class="form-control"
+            id="doj"
+            formControlName="dateOfJourney"
+            type="date"
+            min="{{ minDate }}"
+            [class.is-invalid]="
+              searchForm.get('dateOfJourney').invalid &&
+              searchForm.get('dateOfJourney').touched
+            "
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              searchForm.get('dateOfJourney').invalid &&
+              searchForm.get('dateOfJourney').touched
+            "
+          >
+            Date of Journey is required
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <button type="submit" class="search" 
+        [ngClass]="{'isHovered': isHover}"
+        (mouseenter)="isHover = true"
+        (mouseleave)="isHover = false"
+        [disabled]="searchForm.invalid">
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
