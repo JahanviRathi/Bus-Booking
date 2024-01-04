@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "myTrip": {
+    "busBooking": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-trip",
+            "outputPath": "dist/bus-booking",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "myTrip:build:production"
+              "browserTarget": "busBooking:build:production"
             },
             "development": {
-              "browserTarget": "myTrip:build:development"
+              "browserTarget": "busBooking:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "myTrip:build"
+            "browserTarget": "busBooking:build"
           }
         },
         "test": {
@@ -108,6 +108,5 @@
         }
       }
     }
-  },
-  "defaultProject": "myTrip"
+  }
 }

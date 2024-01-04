@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookTicketsService } from '../book-tickets.service';
 import { BookedTickets } from '../models/booked-tickets';
@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./passenger-info.component.css'],
 })
 export class PassengerInfoComponent implements OnInit {
-  passengerForm: FormGroup;
+  passengerForm: UntypedFormGroup;
   selectedBus: SelectedBusDetails;
   selectedSeats: number[];
   bookedTickets: BookedTickets;
@@ -26,15 +26,15 @@ export class PassengerInfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.passengerForm = new FormGroup({
-      name: new FormControl(null, Validators.required),
-      mobile: new FormControl(null, [
+    this.passengerForm = new UntypedFormGroup({
+      name: new UntypedFormControl(null, Validators.required),
+      mobile: new UntypedFormControl(null, [
         Validators.required,
         Validators.pattern('[0-9]+'),
         Validators.minLength(10),
         Validators.maxLength(10),
       ]),
-      email: new FormControl(null, Validators.email),
+      email: new UntypedFormControl(null, Validators.email),
     });
     this.selectedBus = this.ticketService.selectedBus;
     this.selectedSeats = this.ticketService.selectedSeats;
