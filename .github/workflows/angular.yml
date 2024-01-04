@@ -21,11 +21,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci --legacy-peer-deps
-    - run: npm run build --if-present
-    - run: echo "No tests to run"
+    
+    - name: Install Packages
+      run: npm ci --legacy-peer-deps
+    
+    - name: Build Project
+      run: npm run build --if-present
+    
+    - name: Run Test
+      run: echo "No tests to run"
+
+    - name: Build and Push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: repo/image
+        tags: v1, latest
+        registry: ghcr.io
+        dockerfile: ./Dockerfile
+        username: ${{ secrets.GCR_USERNAME }}
+        password: ${{ secrets.GCR_TOKEN }} 
